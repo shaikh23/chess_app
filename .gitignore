@@ -1,14 +1,20 @@
-# Byte-compiled / optimized / DLL files
+# Python bytecode and cache
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Virtual environment
+# Virtual environments
 venv/
 .env/
 
-# VS Code settings
-.vscode/
-
-# Mac OS junk
+# OS-specific files
 .DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Pygame or other generated files (if any)
+*.log
+*.tmp
