@@ -28,10 +28,15 @@ class Pawn(Piece):
                 return (board.grid[to_y][to_x].piece is None and
                        board.grid[from_y + direction][to_x].piece is None)
 
-        # Diagonal capture
+        # Diagonal capture (regular or en passant)
         elif abs(from_x - to_x) == 1 and to_y == from_y + direction:
             target_piece = board.grid[to_y][to_x].piece
-            return target_piece is not None and target_piece.color != self.color
+            # Regular diagonal capture
+            if target_piece is not None and target_piece.color != self.color:
+                return True
+            # En passant capture - check if there's a game instance with en_passant_target
+            # This will be validated by the Game class
+            return target_piece is None  # Allow move to empty square for en passant
 
         return False
 
